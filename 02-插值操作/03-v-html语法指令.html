@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ownDivId">
+    <h1>{{ownMessage}}</h1>
+    <h2>{{ownUrl}}</h2>
+    <!--用来解析为标签地址时候才有用-->
+    <h2 v-html="ownUrl">{{ownUrl}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const ownApp = new Vue({
+        el: '#ownDivId',
+        data: {
+            ownMessage: "你好啊",
+            ownUrl : "<a href='http://www.baidu.com'>百度一下</a>"
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div  id="ownApp">
+    {{movies}}
+
+    <ul>
+        <li v-for="item in movies">{{item}}</li>
+    </ul>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+    const domain=new Vue({
+        el: '#ownApp',
+        data:{
+            message:"你好呀",
+            movies:["星际穿越","大话西游","少年派","盗梦空间"]
+        }
+    })
+//domain.movies.push("新的电影")
+</script>
+</body>
+</html>

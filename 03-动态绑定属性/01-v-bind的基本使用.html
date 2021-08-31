@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ownDivId">
+    <!--    内容是可以，但是属性不行-->
+    <h1>{{imagUrl}}</h1>
+    <!-- 错误写法--><!--    <img src="{{imagUrl}}" alt="">-->
+    <img v-bind:src="imagUrl" alt="">
+    <a v-bind:href="url">百度</a>
+
+    <!--    语法糖写法-->
+    <img :src="imagUrl" alt="">
+    <a :href="url">百度</a>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const ownApp = new Vue({
+        el: '#ownDivId',
+        data: {
+            ownMessage: "你好啊",
+            imagUrl: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F17%2F06%2F13%2F5c5a1442f0ec72e59829ee10d891f224.jpg%21r650&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631351413&t=ddb32ef8b45e1eba1f208f849398eb46",
+            url: "http://www.baidu.com"
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计数器</title>
+</head>
+<body>
+<div id="ownApp">
+    <h2>当前计数{{count}}</h2>
+    <h2></h2>
+    <!--    <button v-on:click="counter++">+</button>-->
+    <!--    <button v-on:click="counter&#45;&#45;">+</button>-->
+
+    <button v-on:click="add">+</button>
+    <button @click="add">+</button>
+    <button v-on:click="sub">-</button>
+
+</div>
+
+
+<script src="../js/vue.js"></script>
+
+<script>
+    const obj = {
+        count: 0
+    }
+    const domain = new Vue({
+        el: '#ownApp',
+        // data: {
+        //     count: 0
+        // },
+        data: obj,
+        methods: {  //定义方法
+            add: function () {
+                this.count++;//必须加this  否则找不到当前这个counter
+            },
+            sub: function () {
+                this.count--;
+            }
+        },
+        /*      //这些函数属于Vue生命周期函数
+        beforeCreate: function () {
+        },
+        created:function(){
+        },
+        mounted:function () {
+        }*/
+
+    })
+</script>
+
+</body>
+</html>

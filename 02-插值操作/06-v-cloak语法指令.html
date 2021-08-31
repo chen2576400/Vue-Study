@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Title</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="ownDivId" v-cloak>
+    <h1>{{ownMessage}}</h1>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+    //在vue解析前 div会有v-cloak属性，解析后则会消失
+    setTimeout(function () {//延迟1s在执行  （div在未执行完下部分时 解析结果还是{{ownMessage}} ,执行到下面完成后才会变为真正的值）
+        const ownApp = new Vue({
+            el: '#ownDivId',
+            data: {
+                ownMessage: "你好啊",
+            }
+        })
+    }, 1000)
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active {
+            color: red;
+        }
+
+        .line {
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+<div id="ownDivId">
+    <ul>
+        <li :class="ownLine" v-for="item in movies">{{item}}</li>
+    </ul>
+
+    <ul>
+        <li :class="ownLine" v-for="(item,index) in movies">{{item + '下标为:' +index}}</li>
+    </ul>
+
+    <!--    下标为1的展示位红色-->
+    <ul>
+        <li :class="getClass(index)" v-for="(item,index) in movies">{{item + ' ' +index}}</li>
+    </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const ownApp = new Vue({
+        el: '#ownDivId',
+        data: {
+            ownMessage: "你好啊",
+            movies: ["海尔兄弟", "葫芦娃", "变形金刚"],
+            ownLine: "line",
+            ownActive: "active"
+        },
+        methods: {
+            getClass: function (index) {
+                if (index == 1) {
+                    return this.ownActive
+                } else {
+                    return this.ownLine
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ownDivId">
+    <!--通过定义methods(调用一次就会执行一次方法)-->
+    <h1>{{getFullName()}}</h1>
+    <h1>{{getFullName()}}</h1>
+    <h1>{{getFullName()}}</h1>
+    <h1>{{getFullName()}}</h1>
+    <!--通过computed(除非里面引用变量改变否则只会调用一次）-->
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const ownApp = new Vue({
+        el: '#ownDivId',
+        data: {
+            firstName: 'Tom',
+            lastName: 'Jack'
+        },
+        methods: {
+            getFullName: function () {
+                console.log('getFullName=====>')
+                return this.firstName + '  ' + this.lastName
+            }
+        },
+        computed: {  //计算属性
+            fullName: function () {
+                console.log('fullName=====>')
+                return this.firstName + '  ' + this.lastName
+            }
+        }
+    })
+</script>
+</body>
+</html>

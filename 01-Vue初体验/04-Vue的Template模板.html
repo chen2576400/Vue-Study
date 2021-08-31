@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- 在模板里面提前写好  输入ownVue(自定义模板名称)  快捷键就可以出来下面的-->
+
+<div id="ownDivId">
+    <h1>{{ownMessage}}</h1>
+    <h2>{{ownName}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const ownApp = new Vue({
+        el: '#ownDivId',
+        data: {  //data定义数据
+            ownMessage:"你好啊，隔壁老王",
+            ownName:"王五"
+        }
+    })
+</script>
+</body>
+</html>

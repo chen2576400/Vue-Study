@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    .active {
+        color: red;
+    }
+
+    .line {
+        color: aqua;
+    }
+</style>
+
+<body>
+<div id="ownDivId">
+    <h1 class="active">{{ownMessage}}</h1>
+    <h1 class="line">{{ownMessage}}</h1>
+
+    <h2 :class="active1">{{ownMessage}}</h2>
+    <h2 v-bind:class="line1">{{ownMessage}}</h2>
+
+    <!--    "{类名1：boolean,类名2:boolean}" 传递的是一个对象  这里acive为true才会有这个属性 为false则没有-->
+    <h3 :class="{active:isActive,line:isLine}">{{ownMessage}}</h3>
+    <h3 :class="getClass()">{{ownMessage}}</h3>
+
+
+    <button v-on:click="btnClik">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const ownApp = new Vue({
+        el: '#ownDivId',
+        data: {
+            ownMessage: "你好啊",
+            active1: "active",
+            line1: "line",
+            isActive: true,
+            isLine: true
+        },
+        methods:{
+            btnClik:function () {
+               this.isLine=!this.isLine
+            },
+            getClass:function () {
+          return {active:this.isActive,line:this.isLine}
+            }
+        }
+    })
+</script>
+</body>
+</html>

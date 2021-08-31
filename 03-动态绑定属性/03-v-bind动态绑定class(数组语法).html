@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .active {
+            color: red;
+        }
+
+        .line {
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+<div id="ownDivId">
+    <!--这个引用的是style里面的-->
+    <h1 :class="['active','line']">{{ownMessage}}</h1>
+    <!--    这个引用的是下面data变量-->
+    <h2 :class="[active,line]">{{ownMessage}}</h2>
+    <h2 :class="getClass()">{{ownMessage}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const ownApp = new Vue({
+        el: '#ownDivId',
+        data: {
+            ownMessage: "你好啊",
+            active: "aaa",
+            line: "bbb"
+        },
+        methods:{
+            getClass:function () {
+            return [this.active,this.line]
+            }
+        }
+    })
+</script>
+</body>
+</html>

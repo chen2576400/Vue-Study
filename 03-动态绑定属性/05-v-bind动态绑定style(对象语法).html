@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ownDivId">
+    <!--    <h1 :style="{key(属性名):value(属性值)}">{{ownMessage}}</h1>-->
+    <h1 style="font-size: 10px">{{ownMessage}}</h1>
+    <!--    20px 必须加上单引号 否则是按照变量去解析-->
+    <h1 :style="{fontSize: '20px'}">{{ownMessage}}</h1>
+    <!--finalSize当成一个变量-->
+    <h1 :style="{fontSize: finalSize}">{{ownMessage}}</h1>
+    <!--finalSize当成一个变量-->
+    <h1 :style="{fontSize: finishSize+'px',color:finalColor}">{{ownMessage}}</h1>
+    <h1 :style="getStyle()">{{ownMessage}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const ownApp = new Vue({
+        el: '#ownDivId',
+        data: {
+            ownMessage: "你好啊",
+            finalSize: '40px',
+            finishSize:'60',
+            finalColor:'red'
+        },
+        methods:{
+            getStyle:function () {
+          return {fontSize: this.finishSize+'px',color:this.finalColor}
+            }
+        }
+    })
+</script>
+</body>
+</html>

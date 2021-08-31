@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="ownDivId">
+    <h1>{{ownMessage}}</h1>
+    <h2>{{ownName}}</h2>
+</div>
+
+<!--必须写成<script> </script>才可以出来 -->
+<script src="../js/vue.js"></script>
+<script>
+    //let变量  const常量
+    const ownApp = new Vue({
+        el: '#ownDivId', //el标签用于挂载要管理的元素(对应div的ID)
+        data: {  //data定义数据
+            ownMessage:"你好啊，隔壁老王",
+            ownName:"王五"
+        }
+    })
+</script>
+</body>
+
+</html>

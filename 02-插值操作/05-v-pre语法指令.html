@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ownDivId">
+    <h1>{{ownMessage}}</h1>
+    <!--这个会将标签内容原封不动展示 (不解析)-->
+    <h1 v-pre>{{ownMessage}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const ownApp = new Vue({
+        el: '#ownDivId',
+        data: {
+            ownMessage: "你好啊",
+        }
+    })
+</script>
+</body>
+</html>

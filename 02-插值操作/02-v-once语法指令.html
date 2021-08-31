@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ownDivId">
+    <h1>{{ownMessage}}</h1>
+    <!-- 这样ownMesage变量改变值就不会随着改变，而是保留初始值-->
+    <h1 v-once>{{ownMessage}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const ownApp = new Vue({
+        el: '#ownDivId',
+        data: {
+            ownMessage: "你好啊",
+        }
+    })
+</script>
+</body>
+</html>

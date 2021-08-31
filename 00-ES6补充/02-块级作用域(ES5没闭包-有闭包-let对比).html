@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button>按钮一</button>
+<button>按钮二</button>
+<button>按钮三</button>
+<button>按钮四</button>
+<button>按钮五</button>
+
+<script>
+    //情况1：ES5 没使用闭包
+    const btns = document.getElementsByTagName('button');
+    for (var i=0;i< btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+            console.log('第' + i + '个按钮被点击')
+        });
+    }
+
+    //情况2：ES5 使用闭包
+    const btns = document.getElementsByTagName('button');
+    for (var i=0;i< btns.length; i++) {
+        (function (num) {//闭包
+            btns[i].addEventListener('click', function () {
+                console.log('第' + num + '个按钮被点击')
+            })
+        })(i)
+    }
+
+</script>
+
+</body>
+</html>

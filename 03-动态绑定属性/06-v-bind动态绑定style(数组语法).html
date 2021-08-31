@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ownDivId">
+    <h1 :style="[baseStyle2]">{{ownMessage}}</h1>
+    <h1 :style="getStyle()">{{ownMessage}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const ownApp = new Vue({
+        el: '#ownDivId',
+        data: {
+            ownMessage: "你好啊",
+            finalSize: '40px',
+            finishSize:'60',
+            finalColor:'red',
+            baseStyle1: {fontSize: '60px'},
+            baseStyle2:{color:'red'}
+        },
+        methods:{
+            getStyle:function () {
+            return  [this.baseStyle1,this.baseStyle2]
+            }
+        }
+    })
+</script>
+</body>
+</html>
